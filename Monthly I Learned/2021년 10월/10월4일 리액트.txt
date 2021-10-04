@@ -1,0 +1,127 @@
+# 리액트 기본 이론
+## JDX & PROPS
+
+- componemt = html을 반환하는 함수, 대문자로 시작해야함
+    - data를 보내려면 props를 사용
+- jsx : react의 유일한 개념, javascript로 html을 구현
+- react component 는 한 번 에 하나의 component만 렌더링 할 수 있음
+- application안에 컴포넌트를 넣을 수 잇음
+- map = rendering
+- propType
+    - 이름은 무조건 proptype
+    - 점검하기 위한 장치
+
+```jsx
+npm i  
+
+import PropTypes from "prop-types";
+
+Food.prototype = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+};
+```
+
+```jsx
+const foodILike = [
+  {
+    id: 1,
+    name: "Kimchi",
+    image:
+      "http://aeriskitchen.com/wp-content/uploads/2008/09/kimchi_bokkeumbap_02-.jpg",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: "Samgyeopsal",
+    image:
+      "https://3.bp.blogspot.com/-hKwIBxIVcQw/WfsewX3fhJI/AAAAAAAAALk/yHxnxFXcfx4ZKSfHS_RQNKjw3bAC03AnACLcBGAs/s400/DSC07624.jpg",
+    rating: 4.9,
+  },
+  {
+    id: 3,
+    name: "Bibimbap",
+    image:
+      "http://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/recipes/ck/12/03/bibimbop-ck-x.jpg?itok=RoXlp6Xb",
+    rating: 4.8,
+  },
+  {
+    id: 4,
+    name: "Doncasu",
+    image:
+      "https://s3-media3.fl.yelpcdn.com/bphoto/7F9eTTQ_yxaWIRytAu5feA/ls.jpg",
+    rating: 4.7,
+  },
+  {
+    id: 5,
+    name: "Kimbap",
+    image:
+      "http://cdn2.koreanbapsang.com/wp-content/uploads/2012/05/DSC_1238r-e1454170512295.jpg",
+    rating: 4.6,
+  },
+];
+function Food({ name, picture, rating }) {
+  return (
+    <div>
+      <h1>I like {name}</h1>
+      <h4>rating is {rating}</h4>
+      <img src={picture} alt={name} />
+    </div>
+  );
+}
+```
+
+## STATE
+
+- function component
+
+```jsx
+function App() {
+  return (
+    <div>
+      {foodILike.map((dish) => (
+        <Food
+          key={dish.id}
+          name={dish.name}
+          picture={dish.image}
+          rating={dish.rating}
+        />
+      ))}
+    </div>
+  );
+}
+```
+
+- class component
+    - 자동적으로 실행함
+    - data를 바꿀 수 있읍
+    - state : object
+    - **setState()를 호출할 때마다 react가 새로운 state와 함께 render function을 호출**
+    - 예시
+    ```jsx
+    import React from "react";
+    import PropTypes from "prop-types";
+    
+    class App extends React.Component {
+      state = {
+        count: 0,
+      };
+      add = () => {
+        this.setState((current) => ({ count: current.count + 1 }));
+      };
+      minus = () => {
+        this.setState((current) => ({ count: current.count - 1 }));
+      };
+      render() {
+        return (
+          <div>
+            <h1>The number is: {this.state.count}</h1>
+            <button onClick={this.add}>Add</button>
+            <button onClick={this.minus}>Minus</button>
+          </div>
+        );
+      }
+    }
+    export default App;
+    ```
