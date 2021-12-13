@@ -195,6 +195,57 @@ console.log(numbers); // [ 1, 3, 5, 7, 9 ]
 
 ## Array.prototype.filter
 
+- filter 메소드를 사용하면 if 문을 대체할 수 있다.
+- 배열을 순회하며 각 요소에 대해 인자로 주어진 콜백 함수의 실행 결과가 true인 배열 요소의 값만 추출한 새로운 배열을 반환한다.
+
+### 예제
+
+```jsx
+const result = [1, 2, 3, 4, 5].filter(function (item, index, self) {
+  console.log(`[${index}] = ${item}`);
+  return item % 2; // 홀수만을 필터링한다 (1은 true로 평가된다)
+});
+
+console.log(result); // [ 1, 3, 5 ]
+```
+
+```jsx
+const words = [
+  "spray",
+  "limit",
+  "elite",
+  "exuberant",
+  "destruction",
+  "present",
+];
+
+const result = words.filter((word) => word.length > 6);
+
+console.log(result);
+// expected output: Array ["exuberant", "destruction", "present"]
+```
+
+```jsx
+function isBigEnough(value) {
+  return value >= 10;
+}
+
+let filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// filtered is [12, 130, 44]
+// 콜백함수를 선언 후 이용할 수 있다.
+```
+
+```jsx
+// 배열 속 숫자 중 홀수만 갖는 배열 만들기
+const numbers = [1, 2, 3, 4, 5]; // 기존 배열
+
+// filter1 - callback함수를 직접 작성
+// 현재 요소를 2로 나눈 나머지가 1일 경우 홀수
+const filter1 = numbers.filter((currentNumber) => currentNumber % 2 === 1);
+
+console.log("filter1 =", filter1); // 1,3,5
+```
+
 ## Array.prototype.reduce
 
 ## Array.prototype.some

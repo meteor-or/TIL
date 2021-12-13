@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>cdn방식으로 react 시작하기</title>
+<style></style>
+</head>
+
+<body>
+  <h2>cdn방식으로 react 시작하기</h2>
+  <p>리액트 공식 문서 연습 중인데 새로운 프로젝트를 만들기는 좀 그래서 웹으로 가볍게 react를 시작해보기</p>
+  <div id="like_button_container1"></div>
+  <ol>
+    <li>html 파일에 Dom 컨테이너 설치</li>
+    <li>스크립트 태그 추가하기</li>
+    <li>React 컴포넌트 만들기</li>
+  </ol>
+
+
+  
+<script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script>
+  'use strict';
+  
+  const e = React.createElement;
+  
+  class LikeButton1 extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { liked: false };
+    }
+  
+    render() {
+      if (this.state.liked) {
+        return 'You liked this.';
+      }
+  
+      return e(
+        'button',
+        { onClick: () => this.setState({ liked: true }) },
+        'Like'
+      );
+    }
+  }
+  const domContainer1 = document.querySelector('#like_button_container1');
+  ReactDOM.render(e(LikeButton1), domContainer1);
+  </script>
+
+<script type="text/babel">
+
+'use strict';
+
+const e = React.createElement;
+
+class LikeButton2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false };
+  }
+
+  render() {
+    if (this.state.liked) {
+      return 'You liked this.';
+    }
+
+    return (
+      <button onClick={() => this.setState({ liked: true })}>
+        Like
+      </button>
+    );
+  }
+}
+
+const domContainer2 = document.querySelector('#like_button_container2');
+ReactDOM.render(e(LikeButton2), domContainer2);
+</script>
+</body>
+</html>
