@@ -77,9 +77,9 @@ arr.length;
 
 사실 생각해보면 우리는 어째서 array 자료형에 sort()나 push()를 붙일 수 있었을까. 그 안에 들어 있지 않는데 이유는 아까 위에 설명한 것과 같다. Array 함수에는 sort(), push()등 여러가지 내장 객체가 부여되어있다. 이러한 것들은 Array.prototype을 콜솔 로그에 입력하면 모두 확인 가능하다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/91d917f5-b3b7-4336-8aac-8a01744ba77f/Untitled.png)
+![image](https://user-images.githubusercontent.com/82145837/149352530-5399bce7-82a8-4db9-a624-99a5d00aa8c2.png)
 
-구글에 자바스크립트 문법을 검색하면 가장 많이 보는 사이트다. 여기서 Array.prototype의 의미를 이제 이해할 수 있다.
+구글에 자바스크립트 문법을 검색하면 가장 많이 보는 MDN 사이트다. 여기서 Array.prototype의 의미를 이제 이해할 수 있다.
 
 ```jsx
 Array.prototype.fun1 = function () {};
