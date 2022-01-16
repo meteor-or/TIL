@@ -350,7 +350,7 @@ console.log(
       // };
       // var add = (a, b) => ({ val: a + b });
     </script>
-    7. _each의 외부 다형성 높이기
+    <p>7. _each의 외부 다형성 높이기</p>
     <script>
       // 1. _each에 null 넣어도 에러 안나게
       _each(null, console.log);
@@ -363,10 +363,10 @@ console.log(
       // 2. _keys 만들기
       // 3. _keys에서도 _is_object인지 검사하여 null 에러 안나게
 
-      console.log(_keys({ name: "ID", age: 33 }));
-      console.log(_keys([1, 2, 3, 4]));
-      console.log(_keys(10));
-      console.log(_keys(null));
+      console.log(_keys({ name: "ID", age: 33 })); // ['name', 'age']
+      console.log(_keys([1, 2, 3, 4])); ///[1,2,3,4]
+      console.log(_keys(10)); //[]
+      console.log(_keys(null)); //error
 
       // 4. _each 외부 다형성 높이기
       _each(
