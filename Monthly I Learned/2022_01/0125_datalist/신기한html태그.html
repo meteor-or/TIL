@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>신기한html태그</title>
+  </head>
+  <body>
+    <h3>datalist</h3>
+    <form>
+      <label for="food">좋아하는 음식은?</label>
+      <input type="text" list="food-options" />
+      <datalist id="food-options">
+        <option value="초밥"></option>
+        <option value="타코"></option>
+        <option value="계란말이"></option>
+      </datalist>
+    </form>
+
+    <form>
+      <label for="sign-in">이메일을 입력하세요</label>
+      <input type="text" />@
+      <input type="text" list="sign-options" />
+      <datalist id="sign-options">
+        <option value="naver.com"></option>
+        <option value="gmail.com"></option>
+        <option value="kakao.com"></option>
+      </datalist>
+    </form>
+
+    <h3>프로그래스바</h3>
+    <progress value="50" min="0" max="100"></progress>
+
+    <h3>
+      details 태그 안에 summary 태그를 넣고 그 안에 span 태그로 토글 기능 넣기
+    </h3>
+    <details>
+      <summary>오늘 밥</summary>
+      <span>삼선볶음짬뽕</span>
+    </details>
+
+    <h3>input 태그 type week 기능</h3>
+    <input type="week" />
+    <input type="time" />
+    <p>브라우저마다 환경이 다르다</p>
+
+    <h3>picture 태그</h3>
+    <p>source 태그와 img 태그와 함께 사용된다.</p>
+    <p>img 태그는 source 태그를 지원하지 않을 때 사용된다.</p>
+    <p>
+      이미지 태그 3개를 가져와서 1개를 보여주는 것이 아닌 사용자가 보게되는
+      1개의 이미지만 다운로드 된다
+    </p>
+    <p>화면의 크기를 조절하면 아래 보이는 이미지가 달라진다.</p>
+    <picture>
+      <source
+        srcset="https://via.placeholder.com/150/0000FF/808080"
+        media="(min-width:1200px)"
+      />
+      <source
+        srcset="https://via.placeholder.com/150/FF0000/808080"
+        media="(min-width:900px)"
+      />
+      <source
+        srcset="https://via.placeholder.com/150/FF00FF/808080"
+        media="(min-width:500px)"
+      />
+      <img src="https://via.placeholder.com/150" alt="placeholder" />
+    </picture>
+  </body>
+</html>
