@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>클래스</title>
+    <style>
+      .fontsize1 {
+        font-size: 12.8px;
+      }
+      .fontsize2 {
+        font-size: 13.6px;
+      }
+      .fontsize3 {
+        font-size: 14.4px;
+      }
+      .fontsize4 {
+        font-size: 15.2px;
+      }
+      .fontsize5 {
+        font-size: 16px;
+      }
+      .fontsize6 {
+        font-size: 18.4px;
+      }
+      .fontsize7 {
+        font-size: 20px;
+      }
+      .fontsize8 {
+        font-size: 22.4px;
+      }
+      .fontsize9 {
+        font-size: 25.6px;
+      }
+      .fontsize10 {
+        font-size: 28.8px;
+      }
+      .fontsize11 {
+        font-size: 32.8px;
+      }
+      .fontsize12 {
+        font-size: 36.8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main style="display: flex">
+      <div style="width: 18rem; border: 1px solid">
+        <div id="text" class="fontsize4">
+          얼음 같이, 청춘은 꽃이 그러므로 가는 우리는 없으면 우리 운다. 무엇이
+          위하여 무엇을 것이다. 사랑의 동산에는 그들의 청춘의 가지에 품었기
+          무한한 것이다. 그러므로 바이며, 두손을 것은 관현악이며, 얼음 그들의
+          행복스럽고 것이 아름다우냐? 발휘하기 때까지 무엇을 청춘 황금시대의
+          것이다. 노년에게서 가진 우리는 못하다 뜨거운지라, 설레는 장식하는
+          피다. 같으며, 인간은 평화스러운 뼈 천고에 듣는다. 얼마나 군영과 눈에
+          것이다. 이 것은 청춘의 있는 이상의 날카로우나 천하를 새가 약동하다.
+          들어 피가 사람은 풀이 따뜻한 아니더면, 하는 그것은 피다. 아름답고 하는
+          주는 고동을 고행을 듣는다. 이상이 청춘의 반짝이는 내려온 살았으며,
+          못할 피부가 석가는 이는 운다. 능히 가는 같이, 날카로우나 위하여 실로
+          있다. 꽃 청춘의 우리는 우리 바이며, 열락의 황금시대의 들어 것이다.
+          그들의 과실이 청춘의 피어나기 천하를 싶이 것이다. 인간이 들어 눈이
+          그리하였는가? 생명을 속에 노래하며 무엇을 것이다. 같으며, 쓸쓸한
+          미인을 때에, 영락과 주며, 그들은 무엇이 아니다. 발휘하기 생의 바이며,
+          고행을 속에 천지는 설레는 피가 끓는다. 장식하는 목숨을 그들에게 대중을
+          그들은 끓는 부패뿐이다. 찾아 피어나기
+        </div>
+      </div>
+      <div>
+        <button onclick="prev()"><</button>
+        <button onclick="next()">></button>
+      </div>
+    </main>
+    <script>
+      const fontsizeList = [
+        "fontsize1",
+        "fontsize2",
+        "fontsize3",
+        "fontsize4",
+        "fontsize5",
+        "fontsize6",
+        "fontsize7",
+        "fontsize8",
+        "fontsize9",
+        "fontsize10",
+        "fontsize11",
+        "fontsize12",
+      ];
+      const text = document.querySelector("#text");
+      currentFontSize = fontsizeList.indexOf(text.className);
+
+      function prev() {
+        if (currentFontSize < 1) {
+          currentFontSize;
+        } else {
+          currentFontSize = currentFontSize - 1;
+        }
+        console.log(currentFontSize);
+        text.className = fontsizeList[currentFontSize];
+      }
+      function next() {
+        if (currentFontSize > fontsizeList.length - 2) {
+          currentFontSize;
+        } else {
+          currentFontSize = currentFontSize + 1;
+        }
+        console.log(currentFontSize);
+        text.className = fontsizeList[currentFontSize];
+      }
+    </script>
+  </body>
+</html>
