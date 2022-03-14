@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>cookie</title>
+
+<style>
+
+#app .data-wrap input {
+
+display: block;
+
+}</style></head><body>
+
+<div id="app">
+
+<div class="readMe">
+
+<p>cookie save : name, value, day</p>
+
+<p>cookie check : name</p>
+
+<p>cookie delete : name</p>
+
+</div>
+
+<div class="data-wrap">
+
+<input id="inputName" type="text" placeholder="enter name" />
+
+<input id="inputValue" type="text" placeholder="enter value" />
+
+<input id="inputExp" type="number" value="0" />
+
+<div>
+
+<button id="save">save</button>
+
+<button id="check">check</button>
+
+<button id="delete">delete</button>
+
+</div></div></div>
+
+<div id="login-view">
+
+<nav></nav>
+
+<div id="admin">
+
+</div>
+
+<div id="guest">
+
+</div></div><script>
+
+const btnSave = document.querySelector('#app .data-wrap #save');
+
+const btnCheck = document.querySelector('#app .data-wrap #check');
+
+const btnDelete = document.querySelector('#app .data-wrap #delete');
+
+const inputName = document.querySelector('#app .data-wrap #inputName');
+
+const inputValue = document.querySelector('#app .data-wrap #inputValue');
+
+const inputExp = document.querySelector('#app .data-wrap #inputExp');
+
+const setCookie = function(name, value, exp) {
+
+const date = new Date();
+
+date.setTime(date.getTime() + exp*24*60*60*1000);
+
+document.cookie = name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
+
+};
+
+const getCookie = function(name) {
+
+const value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+
+return value? value[2] : null;
+
+};
+
+const deleteCookie = function(name) {
+
+const todayDate = new Date();
+
+document.cookie = name + "=; path=/; expires=" + todayDate.toGMTString() + ";"
+
+};
+
+const resetInput = () => {
+
+inputName.value = '';
+
+inputValue.value = '';
+
+inputExp.value = 0;
+
+}
+
+btnSave.addEventListener('click', ()=>{
+
+if(inputName.value !== '' && inputValue.value !== '' && inputExp.value !== 0) {
+
+setCookie(inputName.value, inputValue.value, parseInt(inputExp.value))
+
+resetInput();
+
+}});
+
+btnCheck.addEventListener('click', ()=>{
+
+if(inputName.value !== ''){
+
+alert(Boolean(getCookie(inputName.value)));
+
+resetInput();
+
+}});
+
+btnDelete.addEventListener('click', ()=>{
+
+if(inputName.value !== ''){
+
+deleteCookie(inputName.value);
+
+resetInput();
+
+}});</script></body></html>
