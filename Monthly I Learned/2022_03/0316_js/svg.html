@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>svg test</title>
+<style>
+</style>
+</head>
+
+<body>
+	<svg width="200" height="200">
+    <line id="line" x1="100" y1="100" x2="30" y2="100"
+        stroke="green" stroke-width="1" />
+    <line x1="70" y1="50" x2="110" y2="10"
+        stroke="green" stroke-width="10" />
+    <line x1="130" y1="50" x2="170" y2="10"
+        stroke="green" stroke-width="20" />
+</svg>
+<button onclick="createLineWidth3cm()">line</button>
+<button onclick="createRect()">rect</button>
+<script>
+	const getLength = (lineElement) => {
+		let x1 = lineElement.getAttribute("x1");
+		let x2 = lineElement.getAttribute("x2");
+		let y1 = lineElement.getAttribute("y1");
+		let y2 = lineElement.getAttribute("y2");
+
+		let width = Math.abs( x1 - x2 );
+		let height = Math.abs( x1 - x2 );
+		let lineLength = Math.sqrt(Math.pow(width,2) + Math.pow(height, 2));
+		
+		return lineLength
+	}	
+
+	const createLineWidth3cm = () => {
+		const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+		line.setAttribute("x1","10");
+		line.setAttribute("y1","10");
+		line.setAttribute("x2","30");
+		line.setAttribute("y2","10");
+		line.setAttribute("stroke","red");
+		line.setAttribute("stroke-width","3");
+		document.body.querySelector("svg").appendChild(line);
+	}
+	
+	const createRect = () => {
+		const rect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+		rect.setAttribute("x","1");
+		rect.setAttribute("y","1");
+		rect.setAttribute("width","3");
+		rect.setAttribute("height","3");
+		rect.setAttribute("fill","rgba(0,0,0,0)");
+		rect.setAttribute("stroke","red");
+		document.body.querySelector("svg").appendChild(rect);
+	}
+</script>
+</body>
+</html>
