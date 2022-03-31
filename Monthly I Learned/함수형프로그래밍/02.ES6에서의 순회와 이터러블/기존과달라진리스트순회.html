@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>index</title>
+<style>
+</style>
+</head>
+
+<body>
+	
+	<script>
+
+		//기존과 달라진 ES6에서의 리스트 순화
+		// for i++;
+		// for of;
+		const list = [1,2,3,];
+		for (let i = 0; i < list.length; i++) {
+			const element = list[i];
+			console.log(element)
+			}
+		const str = 'abc'
+		for (let i = 0; i < str.length; i++) {
+			const element = str[i];
+			console.log(element);
+			}
+		for (const a of list) {
+			console.log(a);
+		}
+		for (const a of str) {
+			console.log(a);
+		}
+	</script>
+</body>
+</html>
